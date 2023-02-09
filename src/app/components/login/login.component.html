@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col-md-4 mx-auto mt-5">
+        <div class="card">
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-body">
+                <form (submit)="login()">
+                    <div class="form-group">
+                        <label for="" class="form-label">Ingresar mail:</label>
+                        <input type="email" [(ngModel)]="cliente.email"  class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for=""  class="form-label">Ingresar contraseña:</label>
+                        <input type="password" [(ngModel)]="cliente.password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button class="btn btn-primary btn-block col-12 mt-4" type="submit">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
