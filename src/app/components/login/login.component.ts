@@ -15,9 +15,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-    private auth: AuthService,
-    private router: Router
-    ) { }
+    private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +25,7 @@ export class LoginComponent implements OnInit {
         res => {
           if(res !== null){
             localStorage.setItem('token', res.token)            
-            this.router.navigate(['/home']);
+            this.router.navigate(['/productos']);
           }
         }
     )

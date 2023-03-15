@@ -1,9 +1,10 @@
 export interface Producto{
     id?: number;
-    legajo?: string;
-    nombre?: string;
-    apellido?: string;
-    email?: string;
-    sucursal?: number;
-    puesto?: number;
+    sku?: string;
+    stok?: string;
+    categoria?: string;
+    descripcion?: string;
+    marca?: string;
+    precio?: number;
+    img?: string;    
 }

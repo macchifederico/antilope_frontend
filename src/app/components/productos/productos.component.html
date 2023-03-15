@@ -1,35 +1,30 @@
+<app-navbar></app-navbar>
 <div class="container">
-    <app-navbar></app-navbar>
-    <!-- <div class="card-group mt-5">
-        <div class="card" *ngFor = "let producto of productos">
-            <img src="{{ producto.img }}" class="card-img-top" alt="..." style="height: 300px;">
-            <div class="card-body">
-                <p class="card-text">
-                    {{producto.id}}
-                </p>
-                <p class="card-text">
-                    {{producto.marca}}
-                </p>
-                <p class="card-text">
-                    {{producto.descripcion}}
-                </p>
-            </div>
-        </div>
-    </div> -->
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-        <div class="col" *ngFor = "let producto of productos">
-          <div class="card" >
-            <img src="{{ producto.img }}" class="card-img-top" alt="..." style="height: 300px;">
-            <div class="card-body">
-              <h5 class="card-title">{{producto.marca}}</h5>
-              <p class="card-text">{{producto.descripcion}}</p>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-danger col-12">
-                    AGREGAR AL CARRITO
-              </button>
+  <form>
+    <div class="row g-4 mt-5">
+      <div class="col-3">
+        <app-lateral></app-lateral>
+      </div>
+      <div class="col-9">
+        <div class="row">
+          <div class="col-md-3 g-4" *ngFor = "let producto of productos">
+            <div class="card" style="height: 100%;">
+              <img src="{{ producto.img }}" class="card-img-top" alt="..." style="height: 200px;">
+              <div class="card-body">
+                <h5 class="card-title">{{producto.marca}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p>{{producto.categoriaId}}</p>
+                <p>$ {{producto.precio}},00.-</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-danger col-12" type="submit" (click)="agregarAlCarrito(producto)">
+                      AGREGAR AL CARRITO
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </div>    
+      </div>
     </div>
+  </form>
 </div>

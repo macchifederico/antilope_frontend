@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/Producto';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -11,9 +12,14 @@ export class ProductosComponent implements OnInit {
 
   productos: any = [];
 
-  constructor(private prodService: ProductosService) { }
+  constructor(private prodService: ProductosService, private carrService: CarritoService
+  ) { }
 
   ngOnInit(): void {
+    this.getProductList();
+  }
+
+  getProductList(){
     this.prodService.getProductosList().subscribe(
       {
         next: res => {
@@ -26,6 +32,22 @@ export class ProductosComponent implements OnInit {
         }
       }
     )
+  }
+
+  agregarAlCarrito(producto: Producto){        
+    this.carrService.agregarProductoAlCarrito(producto).subscribe(
+      {
+        next: res => {
+          console.log("Producto agregado");
+          
+        },
+        error: err => {
+          console.log();
+          
+        }         
+      }
+    );
+      
   }
 
 }
