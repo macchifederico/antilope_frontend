@@ -34,7 +34,8 @@ export class AuthService {
     this.router.navigate(['/login'])
   }
 
-  getInformacion(id: number): Observable<Cliente>{
-    return this.http.get<Cliente>(`${this.URL}`);
-  }
+  // expiredToken(){
+  //   return
+  // }
+
 }

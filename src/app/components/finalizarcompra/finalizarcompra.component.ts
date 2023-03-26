@@ -17,7 +17,6 @@ export class FinalizarcompraComponent implements OnInit {
   idClienteLogueado: string;
 
   ngOnInit(): void {
-    this.getInformacionCliente()
   }
 
   getInformacionCliente(){

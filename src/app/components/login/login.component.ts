@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -23,10 +24,31 @@ export class LoginComponent implements OnInit {
   login(){    
     this.auth.login(this.cliente).subscribe(
         res => {
-          if(res !== null){
-            localStorage.setItem('token', res.token)            
+          localStorage.setItem('token', res.token)            
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: res.text,
+            showConfirmButton: false,
+            timer: 2000
+          })
+          setTimeout(() => {
             this.router.navigate(['/productos']);
-          }
+          }, 3000);
+          
+        },
+        err => {
+          console.log(err.error.text);
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: err.error.text,
+            showConfirmButton: false,
+            timer: 2000
+          })
+          setTimeout(() => {
+            document.location.reload();
+          }, 2000);
         }
     )
   }
