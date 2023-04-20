@@ -1,0 +1,14 @@
+<form [formGroup]="updateForm" (ngSubmit)="updateInfoCliente()">
+    <div class="mb-3">
+      <label for="direccion" class="form-label">Direccion</label>
+      <input type="text" name="direccion" formControlName="direccion" class="form-control" [(ngModel)]="direccion">
+    </div>
+    <div class="mb-3">
+      <label for="codPostal" class="form-label">Codigo postal</label>
+      <input type="text" name="codPostal" formControlName="codPostal" class="form-control" value="" [(ngModel)]="codPostal">
+    </div>
+    <button type="submit" class="btn btn-info">Actualizar</button>
+    <span class="ms-3" *ngIf="(!infoCliente?.direccion || !infoCliente?.codigoPostal)" style="color: red;">
+      Por favor completar campos
+    </span>
+</form>

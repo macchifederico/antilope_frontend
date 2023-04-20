@@ -1,45 +1,36 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row pt-5">
-      <h4>Finalizar Compra</h4>
-        <div class="col-xs-12 col-md-9">
-          <form #finCompra="ngForm">
-            <label for="">Direccion:</label>
-            <input type="text" name="direccion" id="direccion" ngModel>
-            <br>
-            <label for="">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" ngModel>
-            <br>
-            <label for="">Apellido:</label>
-            <input type="text" name="apellido" id="apellido" ngModel>
-            <br>
-            <label for="">DNI:</label>
-            <input type="text" name="dni" id="dni" ngModel>
-            <br>
-            <label for="">Telefono:</label>
-            <input type="text" name="telefono" id="telefono" ngModel>
-          </form>
+      <h2>Finalizar Compra</h2>
+      <div class="col-xs-12 col-md-9">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Datos Personales
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  <app-datospersonales></app-datospersonales>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Datos de envío
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <app-datosenvio></app-datosenvio>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="col-xs-12 col-md-3">
-          <table class="table">
-            <thead>
-              <tr style="border: none;">
-                <th scope="col">Subtotal</th>
-                <th colspan="3"></th>
-                <th scope="col">$ preciototal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Total</th>
-                <td colspan="3"></td>
-                <td>$ precio total</td>
-              </tr>
-            </tbody>
-            
-          </table>
-          <button type="submit" class="btn btn-danger" style="width: 100%; margin-top: 10px;" (click)="getInformacionCliente()">Finalizar Compra</button>
-          <button type="submit" class="btn btn-info" style="width: 100%; margin-top: 20px;">Seguir Comprando</button>
-        </div>
-    </div>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <app-minicarrito></app-minicarrito>
+      </div>
+</div>

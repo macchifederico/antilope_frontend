@@ -11,13 +11,16 @@ import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { FiltrosComponent } from './components/filtros/filtros.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { LateralComponent } from './components/lateral/lateral.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { FinalizarcompraComponent } from './components/finalizarcompra/finalizarcompra.component';
+import { MinicarritoComponent } from './components/minicarrito/minicarrito.component';
+import { DatospersonalesComponent } from './components/finalizarcompra/datospersonales/datospersonales.component';
+import { DatosenvioComponent } from './components/finalizarcompra/datosenvio/datosenvio.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,17 @@ import { FinalizarcompraComponent } from './components/finalizarcompra/finalizar
     HomeComponent,
     LateralComponent,
     CarritoComponent,
-    FinalizarcompraComponent,    
+    FinalizarcompraComponent,
+    MinicarritoComponent,
+    DatospersonalesComponent,
+    DatosenvioComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductosService,

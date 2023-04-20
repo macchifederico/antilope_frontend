@@ -1,0 +1,26 @@
+<form [formGroup]="updateForm" (ngSubmit)="updateInfoCliente()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" name="nombre" formControlName="nombre" class="form-control" [(ngModel)]="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input type="text" name="apellido" formControlName="apellido" class="form-control" value="" [(ngModel)]="apellido">
+    </div>
+    <div class="mb-3">
+      <label for="dni" class="form-label">Dni</label>
+      <input type="text" name="dni" formControlName="dni" class="form-control" value="" [(ngModel)]="dni">
+    </div>
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Telefono</label>
+      <input type="text" name="telefono" formControlName="telefono" class="form-control" value="" [(ngModel)]="telefono">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" name="email" formControlName="email" class="form-control" value="" [(ngModel)]="email">
+    </div>
+    <button type="submit" class="btn btn-info">Actualizar</button>
+    <span class="ms-3" *ngIf="(!infoCliente?.nombre || !infoCliente?.apellido || !infoCliente?.telefono || !infoCliente?.email || !infoCliente?.dni)" style="color: red;">
+      Por favor completar campos
+    </span>
+</form>

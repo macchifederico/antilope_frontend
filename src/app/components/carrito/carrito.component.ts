@@ -41,7 +41,7 @@ export class CarritoComponent implements OnInit {
   }
 
   eliminarProducto(carrito: Producto){
-    const id = carrito.id;
+    const id = carrito.id;    
     if(id){
       this.carritoService.eliminarProductoDelCarrito(id).subscribe(
         {
@@ -64,14 +64,6 @@ export class CarritoComponent implements OnInit {
         }
       )
     }
-  }
-
-  seguirComprando(){
-    this.router.navigate(['/productos'])
-  }
-
-  finalizarCompra(){
-    this.router.navigate(['/finalizarcompra'])
   }
 
 }

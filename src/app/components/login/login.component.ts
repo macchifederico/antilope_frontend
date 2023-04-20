@@ -22,35 +22,36 @@ export class LoginComponent implements OnInit {
   }
 
   login(){    
-    this.auth.login(this.cliente).subscribe(
-        res => {
-          localStorage.setItem('token', res.token)            
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: res.text,
-            showConfirmButton: false,
-            timer: 2000
-          })
-          setTimeout(() => {
-            this.router.navigate(['/productos']);
-          }, 3000);
-          
-        },
-        err => {
-          console.log(err.error.text);
-          Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            title: err.error.text,
-            showConfirmButton: false,
-            timer: 2000
-          })
-          setTimeout(() => {
-            document.location.reload();
-          }, 2000);
-        }
-    )
+    this.auth.login(this.cliente).subscribe({
+      next: res => {
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('id', res.id)        
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: res.text,
+          showConfirmButton: false,
+          timer: 2000
+        })
+        setTimeout(() => {
+          this.router.navigate(['/productos']);
+        }, 3000);
+        
+      },
+     error: err => {
+        console.log(err.error.text);
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: err.error.text,
+          showConfirmButton: false,
+          timer: 2000
+        })
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    })
   }
 
 }

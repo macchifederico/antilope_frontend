@@ -12,8 +12,9 @@ export class ProductosComponent implements OnInit {
 
   productos: any = [];
 
-  constructor(private prodService: ProductosService, private carrService: CarritoService
-  ) { }
+  constructor(private prodService: ProductosService, private carrService: CarritoService) { 
+
+  }
 
   ngOnInit(): void {
     this.getProductList();
@@ -34,7 +35,9 @@ export class ProductosComponent implements OnInit {
     )
   }
 
-  agregarAlCarrito(producto: Producto){        
+  agregarAlCarrito(producto: Producto){  
+    console.log(producto);
+          
     this.carrService.agregarProductoAlCarrito(producto).subscribe(
       {
         next: res => {
