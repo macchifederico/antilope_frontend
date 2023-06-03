@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/Producto';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -36,16 +37,35 @@ export class ProductosComponent implements OnInit {
   }
 
   agregarAlCarrito(producto: Producto){  
-    console.log(producto);
-          
     this.carrService.agregarProductoAlCarrito(producto).subscribe(
       {
         next: res => {
+          const msg = JSON.parse(JSON.stringify(res));
           console.log("Producto agregado");
-          
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: msg.text,
+            showConfirmButton: false,
+            timer: 2000
+          })
+          setTimeout(() => {
+            document.location.reload();
+          }, 3000);
         },
         error: err => {
-          console.log();
+          const msg = JSON.parse(JSON.stringify(err));
+          console.log("Producto agregado");
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: msg.text,
+            showConfirmButton: false,
+            timer: 2000
+          })
+          setTimeout(() => {
+            document.location.reload();
+          }, 2000);
           
         }         
       }

@@ -21,6 +21,7 @@ import { FinalizarcompraComponent } from './components/finalizarcompra/finalizar
 import { MinicarritoComponent } from './components/minicarrito/minicarrito.component';
 import { DatospersonalesComponent } from './components/finalizarcompra/datospersonales/datospersonales.component';
 import { DatosenvioComponent } from './components/finalizarcompra/datosenvio/datosenvio.component';
+import { FormaentregaComponent } from './components/finalizarcompra/formaentrega/formaentrega.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +38,16 @@ import { DatosenvioComponent } from './components/finalizarcompra/datosenvio/dat
     FinalizarcompraComponent,
     MinicarritoComponent,
     DatospersonalesComponent,
-    DatosenvioComponent,    
+    DatosenvioComponent,
+    FormaentregaComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ProductosService,

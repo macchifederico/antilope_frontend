@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/Producto';
 import { CarritoService } from 'src/app/services/carrito.service';
@@ -12,8 +12,9 @@ import Swal from 'sweetalert2';
 })
 export class CarritoComponent implements OnInit {
 
-  productosCarrito: any;
-  precioTotal: number;
+  @Input() coso: string = '';
+  
+  productosCarrito: any = [];
 
   constructor(private carritoService: CarritoService, private router: Router) { }
 
@@ -27,10 +28,6 @@ export class CarritoComponent implements OnInit {
         next: res => {
           this.productosCarrito = res;
 
-          for (let i = 0; i < this.productosCarrito.length; i++) {
-            const element = this.productosCarrito[i];
-            this.precioTotal += element.precio_unitario;
-          }
         },
         error: err => {
           console.log(err);

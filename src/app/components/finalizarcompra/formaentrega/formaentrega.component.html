@@ -1,0 +1,14 @@
+<form (submit)="actualizarEnvio()">
+    <div class="mb-3">
+      <label for="direccion" class="form-label">Forma de entrega</label>
+      <select name="direccion" class="form-control" [(ngModel)]="seleccion">
+        <option value="0"selected>Elegir opcion de envio...</option>
+        <option value="7">Envio a domicilio</option>
+        <option [value]="sucursal.id" *ngFor="let sucursal of sucursales">{{sucursal.nombre + " - " + sucursal.direccion}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-info">Actualizar</button>
+    <span class="ms-3"  style="color: red;">
+      Elegir forma de entrega
+    </span>
+</form>

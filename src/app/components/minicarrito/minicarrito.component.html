@@ -3,17 +3,19 @@
     <tr style="border: none;">
         <th scope="col">Subtotal</th>
         <th colspan="3"></th>
-        <th scope="col">$</th>
+        <th scope="col">$ {{ precioTotal }}</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <th scope="row">Total</th>
         <td colspan="3"></td>
-        <td>$</td>
+        <td>$ {{ precioTotal }}</td>
     </tr>
     </tbody>
     
 </table>
-<button type="submit" class="btn btn-danger" style="width: 100%; margin-top: 10px;" (click)="finalizarCompra()">Finalizar Compra</button>
-<button type="submit" class="btn btn-info" style="width: 100%; margin-top: 20px;" (click)="seguirComprando()">Seguir Comprando</button>
+<button type="submit" class="btn btn-warning" [disabled]="productosCarrito.length === 0" (click)="vaciarCarrito()">Vaciar carrito</button>
+<button type="submit" class="btn btn-info" (click)="seguirComprando()">Seguir Comprando</button>
+<button type="submit" class="btn btn-danger" [disabled]="productosCarrito.length === 0" (click)="finalizarCompra()">Finalizar Compra</button>
+<button type="submit" class="btn btn-success" [disabled]="!productosCarrito.finalizado">Ir a pagar</button>

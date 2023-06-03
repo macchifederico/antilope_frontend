@@ -34,6 +34,11 @@ export class DatospersonalesComponent {
     })
   }
 
+  ngOnInit(): void {
+    
+  }
+
+
 getInfoCliente(){
   const idCliente = parseInt(localStorage.getItem('id'));
   this.clienteService.obtenerDatosCliente(idCliente).subscribe({

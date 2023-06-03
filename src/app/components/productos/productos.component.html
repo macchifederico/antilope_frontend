@@ -2,12 +2,12 @@
 <div class="container">
   <form>
     <div class="row g-4 mt-5">
-      <div class="col-3">
+      <div class="col-md-3 col-sm-6">
         <app-lateral></app-lateral>
       </div>
       <div class="col-9">
         <div class="row">
-          <div class="col-md-3 g-4" *ngFor = "let producto of productos">
+          <div class="col-md-3 col-sm-6 g-4" *ngFor = "let producto of productos">
             <div class="card" style="height: 100%;">
               <img src="{{ producto.img }}" class="card-img-top" alt="..." style="height: 200px;">
               <div class="card-body">

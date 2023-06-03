@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login(){    
     this.auth.login(this.cliente).subscribe({
       next: res => {
-        localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.token) //cambiar a cookies
         localStorage.setItem('id', res.id)        
         Swal.fire({
           position: 'center',
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
           this.router.navigate(['/productos']);
         }, 3000);
-        
       },
      error: err => {
         console.log(err.error.text);
