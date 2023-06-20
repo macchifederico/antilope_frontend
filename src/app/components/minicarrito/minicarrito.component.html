@@ -18,4 +18,4 @@
 <button type="submit" class="btn btn-warning" [disabled]="productosCarrito.length === 0" (click)="vaciarCarrito()">Vaciar carrito</button>
 <button type="submit" class="btn btn-info" (click)="seguirComprando()">Seguir Comprando</button>
 <button type="submit" class="btn btn-danger" [disabled]="productosCarrito.length === 0" (click)="finalizarCompra()">Finalizar Compra</button>
-<button type="submit" class="btn btn-success" [disabled]="!productosCarrito.finalizado">Ir a pagar</button>
+<button type="submit" class="btn btn-success" [disabled]="!pedido.ok">Ir a pagar</button>
