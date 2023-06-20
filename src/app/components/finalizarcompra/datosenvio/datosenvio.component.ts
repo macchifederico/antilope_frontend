@@ -48,7 +48,6 @@ export class DatosenvioComponent {
   updateInfoCliente(){
     const idCliente = parseInt(localStorage.getItem('id'));
     this.infoUpdatearCliente = this.updateForm.value;
-    console.log(this.infoUpdatearCliente);
     
     this.clienteService.updateInfoCliente(idCliente, this.infoUpdatearCliente).subscribe({
       next: res => {
@@ -60,13 +59,19 @@ export class DatosenvioComponent {
           showConfirmButton: false,
           timer: 2000
         })
-        setTimeout(() => {
-          document.location.reload();
-        }, 2000);   
+        // setTimeout(() => {
+        //   document.location.reload();
+        // }, 2000);   
       },
       error: err => {
-        console.log(err);
-        
+        const msg = JSON.parse(JSON.stringify(err.error));
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: msg.text,
+          showConfirmButton: false,
+          timer: 2000
+        })
       }
     });
   }

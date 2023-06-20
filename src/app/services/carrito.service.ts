@@ -29,9 +29,4 @@ export class CarritoService {
   vaciarCarrito(productos: any){
     return this.http.delete(`${this.API_URL}/`, productos);
   }
-
-  cambiarEstadoCarrito(opcion: number){
-    return this.http.put(`${this.API_URL}`, opcion);
-  
-  }
 }

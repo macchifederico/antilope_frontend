@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito.service';
+import { PedidoService } from 'src/app/services/pedido.service';
 import Swall from 'sweetalert2';
 
 @Component({
@@ -12,16 +13,17 @@ export class MinicarritoComponent {
 
   productosCarrito: any = [];
   precioTotal: number;
-  tituloBoton: string = ""
-  constructor(private router: Router, private carritoService: CarritoService) {
+  tituloBoton: string = "";
+  pedido: any = [];
+
+  constructor(private router: Router, private carritoService: CarritoService, private pedidoService: PedidoService) {
     this.getProductosDelCarrito();    
   }
 
   ngOnInit() {
-
+    this.getInfoPedidoCliente();
   }
-
-
+  
   seguirComprando(){
     this.router.navigate(['/productos']);
   }
@@ -49,7 +51,6 @@ export class MinicarritoComponent {
         },
         error: err => {
           console.log(err);
-          
         }
       }
     )    
@@ -69,5 +70,14 @@ export class MinicarritoComponent {
     )
   }
 
-  
+  getInfoPedidoCliente(){
+    this.pedidoService.getPedidoCliente().subscribe({
+      next: res => {
+        this.pedido = res;              
+      },
+      error: err => {
+        this.pedido = err.error;        
+      }
+    })
+  }
 }
